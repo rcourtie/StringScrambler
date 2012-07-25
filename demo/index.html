@@ -1,0 +1,18 @@
+<html>
+    <head>
+        <title>StringScrambler Demo</title>
+    </head>
+    <body>
+        <ul id="list">
+        </ul>
+
+        <script src="../StringScrambler.js"></script>
+        <script>
+            var list = document.getElementById("list");
+            var scrambler = StringScrambler("String Scrambler");
+            for(var i = 0; i < 20; i++) {
+                list.innerHTML += "<li>" + scrambler.scramble() + "</li>";
+            }
+        </script>
+    </body>
+</html>
