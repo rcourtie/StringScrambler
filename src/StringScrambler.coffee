@@ -1,6 +1,7 @@
 window.StringScrambler = (str) ->
   nameArr = str.split("") ? []
   origName = str ? ""
+  history = [str]
   swapTwoRandomArrayValues = (array, i) ->
     j = Math.floor(Math.random() * (i + 1) )
     tempi = array[i]
@@ -15,12 +16,15 @@ window.StringScrambler = (str) ->
 
   scramble = -> 
     shuffleArray nameArr
+    history.push nameArr.join ""
     return nameArr.join ""
 
+  dupHistory = ->
+    locHistory = []
+    locHistory.push(s) for s in history
+    locHistory
+
   return {
+    getHistory: dupHistory
     scramble: scramble
   }
-
-s = StringScrambler("rodolphe")
-
-console.log s.scramble()
